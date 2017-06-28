@@ -293,6 +293,8 @@ class ComposerStaticInitdff202641ae67c5df3478ebdf16c7d04
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+        'CreateAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_28_190243_create_admins_table.php',
+        'CreateCustomersTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_28_190008_create_customers_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
