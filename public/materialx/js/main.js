@@ -56,7 +56,7 @@ $(document).ready(function($){
 
 	var sklSlider = $("#skillSlider");
 
-	
+
 	// sklSlider.owlCarousel({
 	// 	slideSpeed: 400,
 	// 	items : 6,
@@ -355,8 +355,8 @@ $(document).ready(function($){
 	/* Choose your navigation style */
 
 	//menuFun.intelligent_menu(); // Hide intelligently
-	menuFun.fixed_menu(); // Always fixed
-	// menuFun.mobile_intelligent_menu(); // Hide on Mobile Devices
+	//menuFun.fixed_menu(); // Always fixed
+	menuFun.mobile_intelligent_menu(); // Hide on Mobile Devices
 
 
 
@@ -369,7 +369,7 @@ $(document).ready(function($){
 		function getActiveSectionLength(section, sections) {
 			return sections.index(section);
 		}
-		
+
 		if ( sections.length > 0 ) {
 
 
@@ -546,8 +546,8 @@ $(document).ready(function($){
 	if ( $mapWrapper.length > 0 ) {
 		var map = new GMaps({
 			div: '#map',
-			lat : 23.79473005386213,
-			lng : 90.41430473327637,
+			lat : -7.265682,
+			lng : 112.783556,
 			scrollwheel: false,
 			draggable: draggableOp,
 			zoom: 16,
@@ -556,11 +556,11 @@ $(document).ready(function($){
 		});
 
 		map.addMarker({
-			lat : 23.79473005386213,
-			lng : 90.41430473327637,
+			lat : -7.265682,
+			lng : 112.783556,
 			icon: 'images/marker-icon.png',
 			infoWindow: {
-				content: '<p>BD InfoSys Ltd, Dhaka, Bangladesh</p>'
+				content: '<p>S1 Sistem Informasi, Fakultas Sains dan Teknologi, UNAIR</p>'
 			}
 		});
 	}
@@ -570,7 +570,7 @@ $(document).ready(function($){
 
 
 $(window).load(function(){
-	
+
 	// section calling
 	$('.section-call-to-btn.call-to-home').waypoint({
 		handler: function(event, direction) {
@@ -584,7 +584,7 @@ $(window).load(function(){
 		offset: '90%'
 	});
 
-	
+
 	$('.section-call-to-btn.call-to-about').delay(1000).fadeIn(0, function(){
 		var $this = $(this);
 		$this.removeClass('btn-hidden');
@@ -653,7 +653,7 @@ $(window).load(function(){
 			portTitle = portfolioModal.find('.modal-content .title'),
 			portContent = portfolioModal.find('.modal-content .m-content'),
 			portLink = portfolioModal.find('.modal-footer .modal-action');
-		
+
 		$('#protfolio-msnry').delegate('a.modal-trigger', 'click', function(e){
 			e.preventDefault();
 			var $this = $(this);
