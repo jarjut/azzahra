@@ -1896,3 +1896,46 @@ span.num {
 
 
 /* Add your CSS below */
+
+.category-item {
+    margin-bottom: 50px;
+}
+.category-item li {
+    float: left;
+    width: 45%;
+    margin-right: .33%;
+    margin-bottom: .33%;
+}
+
+.category-item li a {
+    display: block;
+    background-color: inherit;
+}
+
+.bundle-item {
+    margin-bottom: 50px;
+}
+.bundle-item li {
+    float: left;
+    width: 31%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+}
+
+.bundle-item li a {
+    display: block;
+    background-color: inherit;
+}
+
+.layanan-info h5 {
+  border-bottom: 1px solid #eeeeee;
+  color: #727272;
+  font-size: 14px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.layanan-info h5 span {
+  display: inline-block;
+  min-width: 200px;
+}

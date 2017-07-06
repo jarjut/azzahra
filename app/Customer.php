@@ -15,8 +15,11 @@ class Customer extends Authenticatable
      *
      * @var array
      */
+    protected $primaryKey = 'id_customer';
+
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'nama', 'email', 'jeniskelamin', 'nohp', 'alamat', 'password',
     ];
 
     /**

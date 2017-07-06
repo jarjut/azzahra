@@ -2,7 +2,7 @@
 
 namespace Azzahra\Http\Controllers\Auth;
 
-use Azzahra\User;
+use Azzahra\Customer;
 use Azzahra\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,8 +48,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'nama' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:customers',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -62,9 +62,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        return Customer::create([
+            'nama' => $data['nama'],
             'email' => $data['email'],
+            'jeniskelamin' => $data['jeniskelamin'],
+            'nohp' => $data['nohp'],
+            'alamat' => $data['alamat'],
             'password' => bcrypt($data['password']),
         ]);
     }

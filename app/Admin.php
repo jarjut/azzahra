@@ -15,8 +15,10 @@ class Admin extends Authenticatable
      *
      * @var array
      */
+    protected $primaryKey = 'id_admin';
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'kodeCabang', 'nama', 'nip', 'jeniskelamin', 'password',
     ];
 
     /**
