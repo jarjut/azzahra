@@ -10,6 +10,7 @@ class Service extends Model {
 
     protected $table = 'service';
     protected $primaryKey = 'id_service';
+    public $timestamps = false;
     protected $fillable = ['id_service', 'id_category', 'nama', 'harga', 'deskripsi', 'gambar'];
 
 

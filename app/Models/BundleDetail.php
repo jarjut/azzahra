@@ -9,6 +9,7 @@ class BundleDetail extends Model {
      */
 
     protected $table = 'bundle_detail';
+    public $timestamps = false;
     protected $fillable = ['id_bundle', 'id_service'];
 
 

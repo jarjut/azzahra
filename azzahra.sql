@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2017 at 04:44 AM
+-- Generation Time: Jul 06, 2017 at 11:14 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -186,7 +186,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id_customer`, `nama`, `email`, `jeniskelamin`, `nohp`, `alamat`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ahmad Fajrul Falah', 'fajar.falachudin@gmail.com', 1, '083830466935', 'Jl. Gununganyar Tengah 2A no. 4A', '$2y$10$MiBRwd8lcXsD.83wBODGkOO/MUZl4CqOCLrSRk.01U4S6kEAb22l.', 'OtszwpqX7akFOBjyuckeJD1efuBAJRtnXenfabR5NB7YgYWNy3pFcS95LEEO', '2017-07-01 06:26:17', '2017-07-01 06:26:17');
+(1, 'Ahmad Fajrul Falah', 'fajar.falachudin@gmail.com', 1, '083830466935', 'Jl. Gununganyar Tengah 2A no. 4A', '$2y$10$MiBRwd8lcXsD.83wBODGkOO/MUZl4CqOCLrSRk.01U4S6kEAb22l.', 'EYHEGkjdWJtHdpVwMdAl25EyqjCnWTWgbPmXORSKHS6dgWkSrfMWPRG8ee9L', '2017-07-01 06:26:17', '2017-07-01 06:26:17'),
+(2, 'Example', 'example@example.com', 1, '08123456789', 'example', '$2y$10$g0dkVbYh2IM7S2GuK1lh3um4qQ0aXYC.XiCmpu0Bojv4pcMBJ8fIu', NULL, '2017-07-03 22:11:24', '2017-07-03 22:11:24');
 
 -- --------------------------------------------------------
 
@@ -322,6 +323,13 @@ CREATE TABLE `reservasi` (
   `id_customer` int(11) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reservasi`
+--
+
+INSERT INTO `reservasi` (`id_reservasi`, `id_bundle`, `id_pegawai`, `id_jam`, `id_service`, `kodeCabang`, `id_customer`, `tanggal`) VALUES
+(1, NULL, 1, 1, 18, 'SBYT01', 1, '2017-07-11');
 
 -- --------------------------------------------------------
 
@@ -508,7 +516,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `jamreservasi`
 --
@@ -533,7 +541,7 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `service`
 --

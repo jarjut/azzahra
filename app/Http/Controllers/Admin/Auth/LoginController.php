@@ -38,6 +38,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest:admin')->except('logout');
     }
+
     public function showLoginForm()
     {
         return view('admin.login');
@@ -47,18 +48,14 @@ class LoginController extends Controller
     {
         $this->guard()->logout();
 
-        $request->session()->flush();
-
-        $request->session()->regenerate();
-
         return redirect('/admin');
     }
 
     public function username()
     {
-        return 'email';
+        return 'nip';
     }
-    
+
     protected function guard()
     {
         return Auth::guard('admin');

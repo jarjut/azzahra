@@ -11,6 +11,7 @@ class Jamreservasi extends Model {
     protected $table = 'jamreservasi';
     protected $primaryKey = 'id_jam';
     protected $fillable = ['id_jam', 'start', 'end'];
+    public $timestamps = false;
 
 
     public function reservasis() {

@@ -10,6 +10,7 @@ class Voucher extends Model {
 
     protected $table = 'voucher';
     protected $primaryKey = 'kode_voucher';
+    public $timestamps = false;
     protected $fillable = ['kode_voucher', 'discount', 'status'];
 
 

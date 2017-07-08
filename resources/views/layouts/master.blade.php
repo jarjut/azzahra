@@ -140,8 +140,6 @@
                       </li>
                       <li><a href="{{ route('bundle') }}">Paket</a>
                       </li>
-                      <li><a href="{{ route('reservation') }}">Reservasi</a>
-                      </li>
                     @endif
                     @if (Auth::check())
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/service','ServiceController@index')->name('service');
 Route::get('/bundle','BundleController@index')->name('bundle');
 Route::get('/reservation','ReservationController@index')->name('reservation');
+Route::post('/reservation','ReservationController@reservation')->name('reservation.submit');
 
 //AjaxRequest
 Route::get('/findPegawai','ReservationController@findPegawai');
@@ -33,7 +34,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('logout', 'Auth\LoginController@logout')->name('admin.logout');
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('admin.register');
     Route::post('register', 'Auth\RegisterController@register')->name('admin.register.submit');
+
     Route::get('home', 'HomeController@index')->name('admin.home');
+    Route::get('reservation', 'ReservationController@index')->name('admin.reservation');
+    Route::get('pembayaran', 'PembayaranController@index')->name('admin.pembayaran');
+
+    //AjaxRequest
+    Route::get('/findReservation','ReservationController@findReservation');
 });
 
 

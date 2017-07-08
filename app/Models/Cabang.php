@@ -9,6 +9,7 @@ class Cabang extends Model {
      */
 
     protected $table = 'cabang';
+    public $timestamps = false;
     protected $fillable = ['kodeCabang', 'nama', 'alamat'];
 
 

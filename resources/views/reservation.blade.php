@@ -22,68 +22,65 @@
     <div class="col-md-6 col-md-offset-3 funfact-box">
       <div class="card-panel white">
         <div style="padding:20px;">
-          <form action="{{ route('login') }}" method="post">
-            <fieldset>
-              {{ csrf_field() }}
+          <form action="{{ route('reservation.submit') }}" method="post">
+            {{ csrf_field() }}
 
-              <label>Cabang</label>
-              <select class="browser-default" name="cabang">
-                <option value="" disabled selected>Pilih Cabang Salon</option>
-                @foreach ($cabang as $cabang)
-                  <option value="{{ $cabang->kodeCabang}}">{{$cabang->nama}}</option>
+            <label>Cabang</label>
+            <select class="browser-default" name="cabang">
+              <option value="" disabled selected>Pilih Cabang Salon</option>
+              @foreach ($cabang as $cabang)
+                <option value="{{ $cabang->kodeCabang}}">{{$cabang->nama}}</option>
+              @endforeach
+            </select>
+
+            <label>Pilih Layanan atau Paket</label>
+            <select class="browser-default" name="serviceorbundle">
+              <option value="" disabled selected>Pilih Layanan atau Paket</option>
+              <option value="service">Layanan</option>
+              <option value="bundle">Paket</option>
+            </select>
+
+            <div id="category" style="display:none;">
+              <label>Category</label>
+              <select class="browser-default" name="category">
+                <option value="" disabled selected>Pilih Category Layanan</option>
+                @foreach ($category as $category)
+                  <option value="{{$category->id_category}}">{{$category->nama}}</option>
                 @endforeach
               </select>
+            </div>
 
-              <label>Pilih Layanan atau Paket</label>
-              <select class="browser-default" name="serviceorbundle">
-                <option value="" disabled selected>Pilih Layanan atau Paket</option>
-                <option value="service">Layanan</option>
-                <option value="bundle">Paket</option>
-              </select>
-
-              <div id="category" style="display:none;">
-                <label>Category</label>
-                <select class="browser-default" name="category">
-                  <option value="" disabled selected>Pilih Category Layanan</option>
-                  @foreach ($category as $category)
-                    <option value="{{$category->id_category}}">{{$category->nama}}</option>
-                  @endforeach
-                </select>
-              </div>
-
-              <div id="service" style="display:none;">
-                <label>Layanan</label>
-                <select class="browser-default" name="service">
-                  <option value="" disabled selected></option>
-                </select>
-              </div>
-
-            <div id="bundle" style="display:none;">
-                <label>Paket</label>
-                <select class="browser-default" name="bundle">
-                  <option value="" disabled selected>Pilih Paket</option>
-                  @foreach ($bundle as $bundle)
-                    <option value="{{$bundle->id_bundle}}">{{$bundle->nama}}</option>
-                  @endforeach
-                </select>
-              </div>
-
-              <label>Pegawai</label>
-              <select class="browser-default" name="pegawai">
+            <div id="service" style="display:none;">
+              <label>Layanan</label>
+              <select class="browser-default" name="service">
                 <option value="" disabled selected></option>
               </select>
+            </div>
 
-              <label>Tanggal Reservasi</label>
-              <input type="date" name="date" class="datepicker">
-
-              <label>Jam Reservasi</label>
-              <select class="browser-default" name="jam">
-                <option value="" disabled selected></option>
+                        <div id="bundle" style="display:none;">
+              <label>Paket</label>
+              <select class="browser-default" name="bundle">
+                <option value="" disabled selected>Pilih Paket</option>
+                @foreach ($bundle as $bundle)
+                  <option value="{{$bundle->id_bundle}}">{{$bundle->nama}}</option>
+                @endforeach
               </select>
+            </div>
 
-              <button class="hire-me-btn btn waves-effect waves-light brand-bg white-text" type="submit" name="action">Reservasi</button>
+            <label>Pegawai</label>
+            <select class="browser-default" name="pegawai">
+              <option value="" disabled selected></option>
+            </select>
 
-            </fieldset>
+            <label>Tanggal Reservasi</label>
+            <input type="date" name="date" class="datepicker">
+
+            <label>Jam Reservasi</label>
+            <select class="browser-default" name="jam">
+              <option value="" disabled selected></option>
+            </select>
+
+            <button class="btn waves-effect waves-light brand-bg white-text" type="submit" name="action">Reservasi</button>
           </form>
         </div>
       </div>
@@ -105,7 +102,10 @@
   <script type="text/javascript">
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
+      firstDay: 1,
       formatSubmit: 'yyyy-mm-dd',
+      min: new Date(),
+      disable: [0]
     });
   </script>
   {{-- Date Picker --}}
@@ -113,7 +113,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
 
-      //Memilih Cabang
+      //Memilih Cabang->Memilih Pegawai
       $('select[name="cabang"]').on('change',function(){
          var cabang_id=$(this).val();
          if(cabang_id) {
@@ -137,7 +137,7 @@
      });
      //
 
-     //Memilih Category
+     //Memilih Category->Memilih Layanan
      $('select[name="category"]').on('change',function(){
         var id=$(this).val();
         if(id) {
@@ -178,7 +178,7 @@
          service.style.display='none';
          bundle.style.display='block';
          $('select[name="category"]').val("");
-         $('select[name="service"]').val("");
+         $('select[name="service"]').empty().html();
        }
      });
      //

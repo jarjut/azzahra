@@ -129,3 +129,8 @@ a.tags,
    .input-field .prefix.active {
      color: #00bcd4;
    }
+
+   .dashboard-title,
+   .dashboard-menu i {
+       color: #00bcd4;
+   }

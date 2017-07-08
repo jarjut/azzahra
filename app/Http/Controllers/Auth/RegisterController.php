@@ -51,6 +51,8 @@ class RegisterController extends Controller
             'nama' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:customers',
             'password' => 'required|string|min:6|confirmed',
+            'nohp'  => 'required|string|min:11|max:13',
+            'alamat'  => 'required|string'
         ]);
     }
 

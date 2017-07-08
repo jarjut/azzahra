@@ -1,68 +1,47 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.master')
+
+@section('title','Login - Admin AzZahra')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.login.submit') }}">
-                        {{ csrf_field() }}
+  <section id="funfacts" class="root-sec grey lighten-5 funfact-wrap">
+    <div class="sec-inner padd-tb-120">
+      <div class="container">
+        <div class="row">
+          <div class="funfact-inner">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="col-md-6 col-md-offset-3 funfact-box">
+              <div class="card-panel white">
+                <h3 class="about-subtitle">Login</h3>
+                <form action="{{ route('admin.login.submit') }}" method="post">
+                  {{ csrf_field() }}
+                  <div class="input-field grey-text text-darken-1">
+                    <input id="nip" type="text" name="nip" value="{{ old('nip') }}" required>
+                    <label for="nip">NIP</label>
+                  </div>
+                  <div class="input-field grey-text text-darken-1">
+                    <input id="password" type="password" name="password" required>
+                    <label for="password">Password</label>
+                  </div>
+                  @if ($errors->has('nip'))
+                      <span class="help-error">
+                          <strong>NIP atau Password anda salah</strong>
+                      </span>
+                  @endif
+                  <p>
+                    <input type="checkbox" class="filled-in" id="filled-in-box" name="remember" {{ old('remember') ? 'checked' : '' }}/>
+                    <label for="filled-in-box">Remember Me</label>
+                  </p>
+                  <button class="btn waves-effect waves-light brand-bg white-text regular-text" type="submit" name="action">Login</button>
+                </form>
+              </div>
             </div>
+
+          </div>
         </div>
+
+      </div>
+      <!-- .container end -->
     </div>
-</div>
+  </section>
+
 @endsection

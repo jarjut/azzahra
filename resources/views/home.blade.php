@@ -12,6 +12,8 @@
   </li>
   <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-phone-square fa-fw"></i>Contact</a>
   </li>
+  <li><a href="{{ route('reservation') }}"><i class="fa fa-handshake-o fa-fw"></i>Reservasi</a>
+  </li>
 @endsection
 
 

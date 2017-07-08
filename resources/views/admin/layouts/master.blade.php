@@ -19,6 +19,9 @@
   <!-- Favicon-->
   <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" >
 
+  <!-- WebUI PopOver Plugin -->
+  <link rel="stylesheet" href="{{ asset('webuipopover/jquery.webui-popover.css')}}">
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="{{ asset('materialx/css/normalize.css') }}">
   <link rel="stylesheet" href="{{ asset('materialx/font/font-awesome/css/font-awesome.min.css') }}">
@@ -41,6 +44,7 @@
   <!--[if lt IE 9]>
       <script src="materialx/js/html5shiv.js"></script>
   <![endif]-->
+  @yield('css')
 </head>
 
 <body>
@@ -64,87 +68,63 @@
             <div class="nav-inner">
               <nav class="primary-nav">
                 <div class="clearfix nav-wrapper">
-                  <a href="#home" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="images/logo.png" alt="">
+                  <a href="#home" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{ asset('images/logo.png')}}" alt="">
                   </a>
                   <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                   <ul class="right static-menu">
-                    <li class="search-form-li">
-                      <a id="initSearchIcon" class=""><i class="mdi-action-search"></i> </a>
-                      <div class="search-form-wrap hide">
-                        <form action="#" class="">
-                          <input type="search" class="search">
-                          <button type="submit"><i class="mdi-action-search"></i>
-                          </button>
-                        </form>
-                      </div>
-                    </li>
+
                     <li>
                       <a class="dropdown-button blog-submenu-init" href="#!" data-activates="dropdown1">
                         <i class="mdi-navigation-more-vert right"></i>
                       </a>
                     </li>
                   </ul>
+
                   <ul class="inline-menu side-nav" id="mobile-demo">
 
                   <!-- Mini Profile // only visible in Tab and Mobile -->
                     <li class="mobile-profile">
                      <div class="profile-inner">
                         <div class="pp-container">
-                            <img src="images/person.png" alt="">
+                            <img src="{{ asset('images/favicon.ico')}}" alt="">
                         </div>
-                        <h3>John Doe</h3>
-                        <h5>Creative UI/UX Expert</h5>
+                        <h3>Az Zahra</h3>
+                        <h5>Muslimah Salon and Spa</h5>
                       </div>
                     </li><!-- mini profile end-->
 
-                    @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+
+                    {{-- Main Navigation --}}
+
+
+
+                    @if (Auth::guard('admin')->check())
+                      <li><a href="#"><i class="fa fa-home fa-fw"></i>Cabang {{auth()->guard('admin')->user()->cabang->nama}}</a>
+                      </li>
+                      <li><a href="{{ route('admin.home') }}" ><i class="fa fa-home fa-fw"></i>Dashboard</a>
+                      </li>
+                      <li><a href="{{ route('admin.reservation') }}" ><i class="fa fa-handshake-o fa-fw"></i>Reservasi</a>
+                      </li>
+                      <li><a href="{{ route('admin.pembayaran') }}"><i class="fa fa-money fa-fw"></i>Pembayaran</a>
+                      </li>
+
+                      <li><a href="{{ route('admin.logout') }}" class="menu-smooth-scroll" onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();"><i class="fa fa-user fa-fw"></i>Logout</a>
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                      </li>
                     @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
+                      <li><a href="{{ route('admin.login') }}">Login</a></li>
                     @endif
-                    <li><a href="#about" data-section="#about" class="menu-smooth-scroll"><i class="fa fa-user fa-fw"></i>About Me</a>
-                    </li>
-                    <li><a href="#resume" data-section="#resume" class="menu-smooth-scroll"><i class="fa fa-file-text fa-fw"></i>Resume</a>
-                    </li>
-                    <li><a href="#portfolio" data-section="#portfolio" class="menu-smooth-scroll"><i class="fa fa-briefcase fa-fw"></i>Portfolio</a>
-                    </li>
-                    <li><a href="#team" data-section="#team" class="menu-smooth-scroll"><i class="fa fa-users fa-fw"></i>Team</a>
-                    </li>
-                    <li><a href="#testimonial" data-section="#testimonial" class="menu-smooth-scroll"><i class="fa fa-comments fa-fw"></i>Testimonial</a>
-                    </li>
-                    <li><a href="#blog" data-section="#blog" class="menu-smooth-scroll"><i class="fa fa-pencil fa-fw"></i>Blog</a>
-                    </li>
-                    <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>Contact</a>
-                    </li>
+                    {{-- Main Navigation End --}}
                   </ul>
-                  <ul id="dropdown1" class="inline-menu submenu-ul dropdown-content">
-                    <li>Home</li>
-                    <li><a href="blog.html">All Blog</a>
-                    </li>
-                    <li><a href="blog-with-sidebar.html">Blog with Sidebar</a>
-                    </li>
-                    <li><a href="single.html">Single Blog</a>
-                    </li>
-                  </ul>
+
+                  {{-- rightnav 3dot dropdown menu --}}
+                  {{-- <ul id="dropdown1" class="inline-menu submenu-ul dropdown-content">
+
+                  </ul> --}}
+                  {{--rightnav end--}}
 
                 </div>
               </nav>
@@ -155,7 +135,10 @@
       <!-- .container end -->
     </header>
     <!-- #header  navigation end -->
+
     @yield('content')
+
+
     <!-- Footer Section end -->
     <footer id="footer" class="root-sec white root-sec footer-wrap">
       <div class="container">
@@ -165,19 +148,13 @@
               <ul class="left social-icons">
                 <li><a href="#" class="tooltips tooltipped facebook" data-position="top" data-delay="50" data-tooltip="Facebook"><i class="fa fa-facebook"></i></a>
                 </li>
-                <li><a href="#" class="tooltips tooltipped linkedin" data-position="top" data-delay="50" data-tooltip="Linkdin"><i class="fa fa-linkedin"></i></a>
-                </li>
                 <li><a href="#" class="tooltips tooltipped twitter" data-position="top" data-delay="50" data-tooltip="Twitter"><i class="fa fa-twitter"></i></a>
                 </li>
                 <li><a href="#" class="tooltips tooltipped google-plus" data-position="top" data-delay="50" data-tooltip="Google Plus"><i class="fa fa-google-plus"></i></a>
                 </li>
-                <li><a href="#" class="tooltips tooltipped dribbble" data-position="top" data-delay="50" data-tooltip="Dribbble"><i class="fa fa-dribbble"></i></a>
-                </li>
-                <li><a href="#" class="tooltips tooltipped behance" data-position="top" data-delay="50" data-tooltip="Behance"><i class="fa fa-behance"></i></a>
-                </li>
               </ul> <!-- ./social icons end -->
               <div class="right copyright">
-                <p>MaterialX &copy; All Rights Reserved</p>
+                <p>Simolas &copy; All Rights Reserved</p>
               </div>
             </div>
           </div>
@@ -191,7 +168,7 @@
 
 
   <!-- JavaScripts -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="{{ asset('materialx/js/jquery.easing.1.3.js')}}"></script>
   <script src="{{ asset('materialx/js/detectmobilebrowser.js')}}"></script>
   <script src="{{ asset('materialx/js/isotope.pkgd.min.js')}}"></script>
@@ -207,6 +184,9 @@
   <script src="{{ asset('materialx/libs/sweetalert/sweet-alert.min.js')}}"></script>
   <script src="{{ asset('materialx/js/common.js')}}"></script>
   <script src="{{ asset('materialx/js/main.js')}}"></script>
+  <script src="{{ asset('webuipopover/jquery.webui-popover.js')}}"></script>
+  @yield('js')
+
 </body>
 
 </html>

@@ -3,12 +3,15 @@
 namespace Azzahra\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 use Azzahra\Models\Cabang;
 use Azzahra\Models\Pegawai;
 use Azzahra\Models\Bundle;
 use Azzahra\Models\Service;
 use Azzahra\Models\Category;
 use Azzahra\Models\Jamreservasi;
+use Azzahra\Models\Reservasi;
 
 class ReservationController extends Controller
 {
@@ -21,6 +24,7 @@ class ReservationController extends Controller
     //Load View
     public function index()
     {
+
       $cabang     = Cabang::all();
       $bundle     = Bundle::all();
       $category   = Category::all();
@@ -32,6 +36,28 @@ class ReservationController extends Controller
       );
         return view('reservation')->with($data);
     }
+
+    public function reservation(Request $request){
+
+      Validator::make($request->all(), [
+          'cabang' => 'required'
+      ])->validate();
+
+      Reservasi::create([
+        'id_bundle'   => $request->bundle,
+        'id_pegawai'  => $request->pegawai,
+        'id_jam'      => $request->jam,
+        'id_service'  => $request->service,
+        'kodeCabang'  => $request->cabang,
+        'id_customer' => auth()->user()->id_customer,
+        'tanggal'     => $request->date_submit,
+      ]);
+
+      return redirect()->back();
+
+
+    }
+
 
     /*
      *    Ajax Request

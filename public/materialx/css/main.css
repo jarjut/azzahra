@@ -1939,3 +1939,34 @@ span.num {
   display: inline-block;
   min-width: 200px;
 }
+
+.dashboard-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+.dashboard-menu i{
+  font-size: 98px;
+  font-weight: 400;
+}
+.dashboard-menu .menu-title{
+  font-size: 18px;
+  font-weight: 400;
+  color: #727272;
+  text-transform: uppercase;
+}
+
+.reservation-table tr{
+  height: 50px;
+}
+
+.reservation-table td{
+  vertical-align: middle;
+}
+
+.reservation-table thead{
+  color: #00bcd4;
+  font-weight: 400;
+}

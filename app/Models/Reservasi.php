@@ -10,6 +10,7 @@ class Reservasi extends Model {
 
     protected $table = 'reservasi';
     protected $primaryKey = 'id_reservasi';
+    public $timestamps = false;
     protected $fillable = ['id_reservasi', 'id_bundle', 'id_pegawai', 'id_jam', 'id_service', 'kodeCabang', 'id_customer', 'tanggal'];
 
 
@@ -18,7 +19,7 @@ class Reservasi extends Model {
     }
 
     public function customer() {
-        return $this->belongsTo(\Azzahra\Models\Customer::class, 'id_customer', 'id_customer');
+        return $this->belongsTo(\Azzahra\Customer::class, 'id_customer', 'id_customer');
     }
 
     public function service() {
