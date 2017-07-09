@@ -55,6 +55,16 @@ return [
             'driver' => 'token',
             'provider' => 'admins',
         ],
+
+        'master' => [
+            'driver' => 'session',
+            'provider' => 'master',
+        ],
+
+        'master-api' => [
+            'driver' => 'token',
+            'provider' => 'master',
+        ],
     ],
 
     /*
@@ -83,6 +93,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => Azzahra\Admin::class,
+        ],
+
+        'master' => [
+            'driver' => 'eloquent',
+            'model' => Azzahra\Master::class,
         ],
         // 'users' => [
         //     'driver' => 'database',
@@ -113,6 +128,11 @@ return [
         ],
         'admins' => [
             'provider' => 'admin',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'master' => [
+            'provider' => 'master',
             'table' => 'password_resets',
             'expire' => 60,
         ],

@@ -43,6 +43,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/findReservation','ReservationController@findReservation');
 });
 
+//Admin
+Route::group(['prefix' => 'master', 'namespace' => 'Master'], function () {
+    Route::get('/', 'Auth\LoginController@showLoginForm')->name('master.login');
+    Route::post('login', 'Auth\LoginController@login')->name('master.login.submit');
+    Route::post('logout', 'Auth\LoginController@logout')->name('master.logout');
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('master.register');
+    Route::post('register', 'Auth\RegisterController@register')->name('master.register.submit');
+
+    Route::get('home', 'HomeController@index')->name('master.home');
+});
+
 
 
 //MaterialX Template Example

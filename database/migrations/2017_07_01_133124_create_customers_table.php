@@ -21,7 +21,7 @@ class CreateCustomersTable extends Migration {
 			$table->char('nohp', 14);
 			$table->string('alamat', 100);
 			$table->string('password', 191);
-			$table->string('remember_token', 100)->nullable();
+			$table->rememberToken();
 			$table->timestamps();
 		});
 	}

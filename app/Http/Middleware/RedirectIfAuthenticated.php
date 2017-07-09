@@ -24,6 +24,12 @@ class RedirectIfAuthenticated
           }
           break;
 
+        case 'master':
+          if (Auth::guard($guard)->check()) {
+            return redirect()->route('master.home');
+          }
+          break;
+
         default:
           if (Auth::guard($guard)->check()) {
               return redirect('/');
