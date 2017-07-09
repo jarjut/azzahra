@@ -1,5 +1,6 @@
-@extends('layouts.single')
-@section('title','Register - Az Zahra')
+@extends('master.layouts.master')
+
+@section('title','Register Admin - Master Az Zahra')
 
 @section('content')
   <section id="funfacts" class="root-sec grey lighten-5 funfact-wrap">
@@ -10,9 +11,19 @@
 
             <div class="col-md-6 col-md-offset-3 funfact-box">
               <div class="card-panel white">
-                <h3 class="about-subtitle">Register</h3>
-                <form method="POST" action="{{ route('register') }}">
+                <h3 class="about-subtitle">Register Admin</h3>
+                <form method="POST" action="{{ route('master.registerAdmin.submit') }}">
                     {{ csrf_field() }}
+
+                  <div class="input-field grey-text text-darken-1">
+                    <select name="cabang">
+                      <option value="" disabled selected>Pilih Cabang</option>
+                      @foreach ($cabang as $cabang)
+                        <option value="{{ $cabang->kodeCabang}}">{{$cabang->nama}}</option>
+                      @endforeach
+                    </select>
+                    <label>Cabang</label>
+                  </div>
 
                   <div class="input-field grey-text text-darken-1">
                     <input id="nama" class="{{ $errors->has('nama') ? ' invalid' : '' }}"type="text" name="nama" value="{{ old('nama') }}" required>
@@ -25,12 +36,12 @@
                   @endif
 
                   <div class="input-field grey-text text-darken-1">
-                    <input id="email" class="{{ $errors->has('email') ? ' invalid' : '' }}" type="email" name="email" value="{{ old('email') }}" required>
-                    <label for="email">E-Mail Address</label>
+                    <input id="nip" class="{{ $errors->has('nip') ? ' invalid' : '' }}" type="text" name="nip" value="{{ old('nip') }}" required>
+                    <label for="nip">NIP</label>
                   </div>
-                  @if ($errors->has('email'))
+                  @if ($errors->has('nip'))
                       <span class="help-error">
-                          <strong>{{ $errors->first('email') }}</strong>
+                          <strong>{{ $errors->first('nip') }}</strong>
                       </span>
                   @endif
 
@@ -49,26 +60,6 @@
                     <label for="password-confirm">Password Confirmation</label>
                   </div>
 
-                  <div class="input-field grey-text text-darken-1">
-                    <input id="nohp" class="{{ $errors->has('nohp') ? ' invalid' : '' }}" type="text" name="nohp" value="{{ old('nohp') }}" required>
-                    <label for="nohp">Nomor HP</label>
-                  </div>
-                  @if ($errors->has('nohp'))
-                      <span class="help-error">
-                          <strong>{{ $errors->first('nohp') }}</strong>
-                      </span>
-                  @endif
-
-                  <div class="input-field grey-text text-darken-1">
-                    <input id="alamat" class="{{ $errors->has('alamat') ? ' invalid' : '' }}" type="text" name="alamat" value="{{ old('alamat') }}" required>
-                    <label for="alamat">Alamat</label>
-                  </div>
-                  @if ($errors->has('alamat'))
-                      <span class="help-error">
-                          <strong>{{ $errors->first('alamat') }}</strong>
-                      </span>
-                  @endif
-
 
                   <button class="btn waves-effect waves-light brand-bg white-text regular-text" type="submit" name="action">Register</button>
                 </form>
@@ -83,4 +74,12 @@
     </div>
   </section>
 
+@endsection
+
+@section('js')
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+  </script>
 @endsection

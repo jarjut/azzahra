@@ -67,7 +67,6 @@ class RegisterController extends Controller
         return Customer::create([
             'nama' => $data['nama'],
             'email' => $data['email'],
-            'jeniskelamin' => $data['jeniskelamin'],
             'nohp' => $data['nohp'],
             'alamat' => $data['alamat'],
             'password' => bcrypt($data['password']),

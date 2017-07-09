@@ -17,7 +17,6 @@ class CreateCustomersTable extends Migration {
 			$table->integer('id_customer', true);
 			$table->string('nama', 50);
 			$table->string('email', 50)->unique('email');
-			$table->boolean('jeniskelamin');
 			$table->char('nohp', 14);
 			$table->string('alamat', 100);
 			$table->string('password', 191);

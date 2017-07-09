@@ -10,7 +10,7 @@ class Pegawai extends Model {
 
     protected $table = 'pegawai';
     protected $primaryKey = 'id_pegawai';
-    protected $fillable = ['id_pegawai', 'kodeCabang', 'nama', 'nip', 'jeniskelamin', 'tempatlahir', 'tanggallahir'];
+    protected $fillable = ['id_pegawai', 'kodeCabang', 'nama', 'nip'];
 
 
     public function cabang() {

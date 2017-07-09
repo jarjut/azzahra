@@ -18,7 +18,6 @@ class CreatePegawaiTable extends Migration {
 			$table->char('kodeCabang', 6)->index('FK_bekerja');
 			$table->string('nama', 50);
 			$table->string('nip', 15);
-			$table->boolean('jeniskelamin');
 			$table->string('tempatlahir', 50);
 			$table->date('tanggallahir');
 			$table->timestamps();

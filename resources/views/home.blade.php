@@ -415,7 +415,7 @@
               <!-- Map Start -->
               <div class="col-sm-7">
                 <div class="map-wrapper">
-                  <div id="map"></div>
+                  <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ46FNOYj51y0R-r7s_BJaq20&key=AIzaSyCj8eTDsAVHIy-YBQm95o0M7CzD_7NbEL4" allowfullscreen></iframe>
                 </div>
               </div>
               <!-- Map end -->

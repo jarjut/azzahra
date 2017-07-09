@@ -27,7 +27,9 @@ Route::get('/findTime','ReservationController@findTime');
 Auth::routes();
 
 
-//Admin
+/**
+ *  Admin Cabang
+ */
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('login', 'Auth\LoginController@login')->name('admin.login.submit');
@@ -36,6 +38,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('register', 'Auth\RegisterController@register')->name('admin.register.submit');
 
     Route::get('home', 'HomeController@index')->name('admin.home');
+
     Route::get('reservation', 'ReservationController@index')->name('admin.reservation');
     Route::get('pembayaran', 'PembayaranController@index')->name('admin.pembayaran');
 
@@ -43,7 +46,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/findReservation','ReservationController@findReservation');
 });
 
-//Admin
+
+/**
+ *  Admin Pusat
+ */
 Route::group(['prefix' => 'master', 'namespace' => 'Master'], function () {
     Route::get('/', 'Auth\LoginController@showLoginForm')->name('master.login');
     Route::post('login', 'Auth\LoginController@login')->name('master.login.submit');
@@ -52,6 +58,13 @@ Route::group(['prefix' => 'master', 'namespace' => 'Master'], function () {
     Route::post('register', 'Auth\RegisterController@register')->name('master.register.submit');
 
     Route::get('home', 'HomeController@index')->name('master.home');
+
+    Route::get('pegawai/registerAdmin', 'PegawaiController@showRegisterAdmin')->name('master.registerAdmin');
+    Route::post('pegawai/registerAdmin', 'PegawaiController@registerAdmin')->name('master.registerAdmin.submit');
+
+    Route::get('pegawai/registerPegawai', 'PegawaiController@showRegisterPegawai')->name('master.registerPegawai');
+    Route::post('pegawai/registerPegawai', 'PegawaiController@registerPegawai')->name('master.registerPegawai.submit');
+    Route::get('pegawai', 'PegawaiController@index')->name('master.pegawai');
 });
 
 

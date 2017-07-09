@@ -18,7 +18,6 @@ class CreateAdminsTable extends Migration {
 			$table->char('kodeCabang', 6)->index('FK_adminbekerja');
 			$table->string('nama', 50);
 			$table->string('nip', 15)->unique('nip');
-			$table->boolean('jeniskelamin');
 			$table->string('password', 191);
 			$table->rememberToken();
 			$table->timestamps();

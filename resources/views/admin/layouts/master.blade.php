@@ -68,7 +68,7 @@
             <div class="nav-inner">
               <nav class="primary-nav">
                 <div class="clearfix nav-wrapper">
-                  <a href="#home" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{ asset('images/logo.png')}}" alt="">
+                  <a href="{{route("admin.home")}}" class="left brand-logo"><img src="{{ asset('images/logo.png')}}" alt="">
                   </a>
                   <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                   <ul class="right static-menu">
@@ -88,7 +88,7 @@
                         <div class="pp-container">
                             <img src="{{ asset('images/favicon.ico')}}" alt="">
                         </div>
-                        <h3>Az Zahra</h3>
+                        <h3>Admin Az Zahra</h3>
                         <h5>Muslimah Salon and Spa</h5>
                       </div>
                     </li><!-- mini profile end-->

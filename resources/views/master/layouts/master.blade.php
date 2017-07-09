@@ -68,7 +68,7 @@
             <div class="nav-inner">
               <nav class="primary-nav">
                 <div class="clearfix nav-wrapper">
-                  <a href="#home" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{ asset('images/logo.png')}}" alt="">
+                  <a href="{{route("master.home")}}" class="left brand-logo"><img src="{{ asset('images/logo.png')}}" alt="">
                   </a>
                   <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                   <ul class="right static-menu">
@@ -88,7 +88,7 @@
                         <div class="pp-container">
                             <img src="{{ asset('images/favicon.ico')}}" alt="">
                         </div>
-                        <h3>Az Zahra</h3>
+                        <h3>#Admin Az Zahra</h3>
                         <h5>Muslimah Salon and Spa</h5>
                       </div>
                     </li><!-- mini profile end-->
@@ -100,6 +100,11 @@
 
                     @if (Auth::guard('master')->check())
                       <li><a href="{{ route('master.home') }}" ><i class="fa fa-home fa-fw"></i>Dashboard</a>
+                      </li>
+                      <li><a href="{{ route('master.pegawai') }}" ><i class="fa fa-user-o fa-fw"></i>Pegawai</a>
+                      </li>
+                      <li><a href="#" ><i class="fa fa-user-o fa-fw"></i>Layanan</a>
+                      </li>
 
                       <li><a href="{{ route('master.logout') }}" class="menu-smooth-scroll" onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();"><i class="fa fa-user fa-fw"></i>Logout</a>
