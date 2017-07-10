@@ -14,14 +14,21 @@
               <div class="card-panel white">
                 <h3 class="dashboard-title">Dashboard</h3>
                 <div class="row dashboard-menu center-align">
-                  <div class="col-xs-6">
+                  <div class="col-xs-4">
                     <a href="{{route('admin.reservation')}}">
                     <i class="fa fa-handshake-o fa-fw "></i>
                     <h3 class="menu-title">Reservasi</h3>
                     </a>
                   </div>
 
-                  <div class="col-xs-6">
+                  <div class="col-xs-4">
+                    <a href="{{route('admin.pelayanan')}}">
+                    <i class="fa fa-id-card-o fa-fw "></i>
+                    <h3 class="menu-title">Pelayanan</h3>
+                    </a>
+                  </div>
+
+                  <div class="col-xs-4">
                     <a href="{{route('admin.pembayaran')}}">
                     <i class="fa fa-money fa-fw "></i>
                     <h3 class="menu-title">Pembayaran</h3>

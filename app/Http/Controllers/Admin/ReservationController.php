@@ -6,6 +6,7 @@ use Azzahra\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Azzahra\Models\Reservasi;
+use Azzahra\Models\Pembayaran;
 
 class ReservationController extends Controller
 {
@@ -29,8 +30,26 @@ class ReservationController extends Controller
         return view('admin.reservation');
     }
 
+    public function reservationConfirm($id){
+      Reservasi::where('id_reservasi', $id)->update(['status' => 1]);
+      $reservasi = Reservasi::find($id);
+
+      Pembayaran::create([
+          'kodeCabang'  => $reservasi->kodeCabang,
+          'nama'        => $reservasi->customer->nama,
+          'id_bundle'   => $reservasi->id_bundle,
+          'id_service'  => $reservasi->id_service,
+      ]);
+
+      return redirect()->back();
+    }
+
+    //Ajax Request
     public function findReservation(Request $request){
-      $reservasi = Reservasi::with(['pegawai','customer','service','bundle','jamreservasi'])->where('tanggal',$request->tanggal)->get();
+      $reservasi = Reservasi::with(['pegawai','customer','service','bundle','jamreservasi'])
+      ->where('tanggal',$request->tanggal)
+      ->where('status', 0)
+      ->get();
       return response()->json($reservasi);
     }
 }

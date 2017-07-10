@@ -9,9 +9,9 @@ class Reservasi extends Model {
      */
 
     protected $table = 'reservasi';
+    protected $fillable = ['id_reservasi', 'id_bundle', 'id_pegawai', 'id_jam', 'id_service', 'kodeCabang', 'id_customer', 'tanggal', 'status'];
     protected $primaryKey = 'id_reservasi';
     public $timestamps = false;
-    protected $fillable = ['id_reservasi', 'id_bundle', 'id_pegawai', 'id_jam', 'id_service', 'kodeCabang', 'id_customer', 'tanggal'];
 
 
     public function pegawai() {
@@ -36,14 +36,6 @@ class Reservasi extends Model {
 
     public function jamreservasi() {
         return $this->belongsTo(\Azzahra\Models\Jamreservasi::class, 'id_jam', 'id_jam');
-    }
-
-    public function vouchers() {
-        return $this->belongsToMany(\Azzahra\Models\Voucher::class, 'pembayaran', 'id_reservasi', 'kode_voucher');
-    }
-
-    public function pembayarans() {
-        return $this->hasMany(\Azzahra\Models\Pembayaran::class, 'id_reservasi', 'id_reservasi');
     }
 
 

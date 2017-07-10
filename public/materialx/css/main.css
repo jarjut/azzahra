@@ -1971,3 +1971,25 @@ span.num {
   color: #00bcd4;
   font-weight: 400;
 }
+
+.pembayaran-detail p {
+  color: #727272;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 35px;
+}
+
+.pembayaran-detail h5 {
+  border-bottom: 1px solid #eeeeee;
+  color: #727272;
+  font-size: 18px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.pembayaran-detail h5 span {
+  display: inline-block;
+  color: #00bcd4;
+  font-weight: 600;
+  min-width: 120px;
+}

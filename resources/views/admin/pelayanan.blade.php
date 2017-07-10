@@ -1,5 +1,5 @@
-@extends('layouts.single')
-@section('title','Reservasi - Az Zahra')
+@extends('admin.layouts.master')
+@section('title','Pelayanan - Admi Az Zahra')
 
 @section('content')
   <section class="scroll-section root-sec white portfolio-wrap">
@@ -8,7 +8,7 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-              <h2 class="title">RESERVASi</h2>
+              <h2 class="title">PELAYANAN</h2>
             </div>
           </div>
         </div>
@@ -22,16 +22,11 @@
     <div class="col-sm-6 col-sm-offset-3 funfact-box">
       <div class="card-panel white">
         <div style="padding:20px;">
-          <form action="{{ route('reservation.submit') }}" method="post">
+          <form action="{{ route('admin.pelayanan.submit') }}" method="post">
             {{ csrf_field() }}
 
-            <label>Cabang</label>
-            <select class="browser-default" name="cabang">
-              <option value="" disabled selected>Pilih Cabang Salon</option>
-              @foreach ($cabang as $cabang)
-                <option value="{{ $cabang->kodeCabang}}">{{$cabang->nama}}</option>
-              @endforeach
-            </select>
+            <label>Nama</label>
+            <input type="text" name="nama" value="">
 
             <label>Pilih Layanan atau Paket</label>
             <select class="browser-default" name="serviceorbundle">
@@ -67,20 +62,7 @@
               </select>
             </div>
 
-            <label>Pegawai</label>
-            <select class="browser-default" name="pegawai">
-              <option value="" disabled selected></option>
-            </select>
-
-            <label>Tanggal Reservasi</label>
-            <input type="date" name="date" class="datepicker">
-
-            <label>Jam Reservasi</label>
-            <select class="browser-default" name="jam">
-              <option value="" disabled selected></option>
-            </select>
-
-            <button class="btn waves-effect waves-light brand-bg white-text" type="submit" name="action">Reservasi</button>
+            <button class="btn waves-effect waves-light brand-bg white-text" type="submit" name="action">Submit</button>
           </form>
         </div>
       </div>
@@ -97,45 +79,8 @@
 @endsection
 
 @section('js')
-  {{-- Date Picker --}}
-  <script type="text/javascript" src="{{asset('js/pickadate.js')}}"></script>
-  <script type="text/javascript">
-    $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      firstDay: 1,
-      formatSubmit: 'yyyy-mm-dd',
-      min: new Date(),
-      disable: [0]
-    });
-  </script>
-  {{-- Date Picker --}}
-
   <script type="text/javascript">
     $(document).ready(function(){
-
-      //Memilih Cabang->Memilih Pegawai
-      $('select[name="cabang"]').on('change',function(){
-         var cabang_id=$(this).val();
-         if(cabang_id) {
-             $.ajax({
-               type:'get',
-               url:'{!!URL::to('findPegawai')!!}',
-               data:{'id':cabang_id},
-               dataType: "json",
-               success:function(data) {
-                 $('select[name="pegawai"]').empty().html();
-                 $('select[name="pegawai"]').append('<option value="" disabled selected>Pilih Pegawai</option>');
-                 $.each(data, function(index, element) {
-                     $('select[name="pegawai"]').append('<option value="'+ element.id_pegawai +'">'+ element.nama +'</option>');
-                 });
-             }
-             });
-         }else{
-             $('select[name="pegawai"]').empty();
-         }
-
-     });
-     //
 
      //Memilih Category->Memilih Layanan
      $('select[name="category"]').on('change',function(){
@@ -182,35 +127,6 @@
        }
      });
      //
-
-     //Memilih Tanggal
-     $('input[name="date"]').on('change',function(){
-        var tanggal=$('input[name="date_submit"]').val();
-        var kodeCabang=$('select[name="cabang"]').val();
-        var id_pegawai=$('select[name="pegawai"]').val();
-        if(tanggal) {
-          //console.log(tanggal);
-            $.ajax({
-              type:'get',
-              url:'{!!URL::to('findTime')!!}',
-              data:{'tanggal':tanggal, 'kodeCabang':kodeCabang, 'id_pegawai':id_pegawai},
-              dataType: "json",
-              success:function(data) {
-                console.log(data);
-                $('select[name="jam"]').empty().html();
-                $('select[name="jam"]').append('<option value="" disabled selected>Pilih Jam</option>');
-                $.each(data, function(index, element) {
-                    $('select[name="jam"]').append('<option value="'+ element.id_jam +'">'+ timeFormat(element.start) +'</option>');
-                });
-            }
-            });
-        }else{
-            $('select[name="jam"]').empty();
-        }
-
-    });
-    //
-
 
     });
 

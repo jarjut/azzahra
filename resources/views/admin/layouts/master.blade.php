@@ -105,6 +105,8 @@
                       </li>
                       <li><a href="{{ route('admin.reservation') }}" ><i class="fa fa-handshake-o fa-fw"></i>Reservasi</a>
                       </li>
+                      <li><a href="{{ route('admin.pelayanan') }}"><i class="fa fa-id-card-o fa-fw"></i>Pelayanan</a>
+                      </li>
                       <li><a href="{{ route('admin.pembayaran') }}"><i class="fa fa-money fa-fw"></i>Pembayaran</a>
                       </li>
 

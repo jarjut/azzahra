@@ -40,7 +40,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('home', 'HomeController@index')->name('admin.home');
 
     Route::get('reservation', 'ReservationController@index')->name('admin.reservation');
+    Route::get('reservationConfirm/{id}', 'ReservationController@reservationConfirm');
     Route::get('pembayaran', 'PembayaranController@index')->name('admin.pembayaran');
+    Route::get('pembayaranConfirm/{id}', 'PembayaranController@showConfirmForm');
+    Route::post('pembayaranConfirm/{id}', 'PembayaranController@pembayaranConfirm')->name('admin.pembayaranConfirm.submit');
+    Route::get('pelayanan', 'PelayananController@index')->name('admin.pelayanan');
+    Route::post('pelayanan', 'PelayananController@pelayananSubmit')->name('admin.pelayanan.submit');
 
     //AjaxRequest
     Route::get('/findReservation','ReservationController@findReservation');

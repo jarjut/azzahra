@@ -9,13 +9,17 @@ class Pembayaran extends Model {
      */
 
     protected $table = 'pembayaran';
+    protected $fillable = ['id_pembayaran', 'kodeCabang', 'nama', 'id_bundle', 'id_service', 'kode_voucher', 'tanggal', 'status'];
     protected $primaryKey = 'id_pembayaran';
     public $timestamps = false;
-    protected $fillable = ['id_pembayaran', 'id_reservasi', 'kode_voucher', 'tanggal', 'jumlah'];
 
 
-    public function reservasi() {
-        return $this->belongsTo(\Azzahra\Models\Reservasi::class, 'id_reservasi', 'id_reservasi');
+    public function bundle() {
+        return $this->belongsTo(\Azzahra\Models\Bundle::class, 'id_bundle', 'id_bundle');
+    }
+
+    public function service() {
+        return $this->belongsTo(\Azzahra\Models\Service::class, 'id_service', 'id_service');
     }
 
     public function voucher() {

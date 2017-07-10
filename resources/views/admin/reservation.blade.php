@@ -31,6 +31,7 @@
                         <th>Pegawai</th>
                         <th>Layanan</th>
                         <th>Paket</th>
+                        <th>Konfirmasi</th>
                       </tr>
                     </thead>
                     <tbody id="reservation-table">
@@ -91,7 +92,8 @@
                           $('<td>').text(element.customer.nama),
                           $('<td>').text(element.pegawai.nama),
                           $('<td>').text(element.service.nama),
-                          $('<td>').text("-")
+                          $('<td>').text("-"),
+                          $('<td>').append("<a href={!!URL::to('admin/reservationConfirm/')!!}/"+ element.id_reservasi +"><button class='btn waves-effect waves-light brand-bg white-text' name='action'>OK</button></a>"),
                       ).appendTo('#reservation-table');
                     }else if(element.bundle){
                       var $tr = $('<tr>').append(
@@ -100,7 +102,8 @@
                           $('<td>').text(element.customer.nama),
                           $('<td>').text(element.pegawai.nama),
                           $('<td>').text("-"),
-                          $('<td>').text(element.bundle.nama)
+                          $('<td>').text(element.bundle.nama),
+                          $('<td>').append("<a href={!!URL::to('admin/reservationConfirm/')!!}/"+ element.id_reservasi +"><button class='btn waves-effect waves-light brand-bg white-text' name='action'>OK</button></a>"),
                       ).appendTo('#reservation-table');
                     }
                   });
