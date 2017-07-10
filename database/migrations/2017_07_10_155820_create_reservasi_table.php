@@ -22,6 +22,7 @@ class CreateReservasiTable extends Migration {
 			$table->char('kodeCabang', 6)->index('FK_tempat');
 			$table->integer('id_customer')->index('FK_mereservasi');
 			$table->date('tanggal');
+			$table->boolean('status')->default(0);
 		});
 	}
 

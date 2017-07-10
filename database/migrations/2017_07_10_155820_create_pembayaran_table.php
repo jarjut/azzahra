@@ -15,10 +15,13 @@ class CreatePembayaranTable extends Migration {
 		Schema::create('pembayaran', function(Blueprint $table)
 		{
 			$table->integer('id_pembayaran', true);
-			$table->integer('id_reservasi')->nullable()->index('FK_Relationship_12');
+			$table->char('kodeCabang', 6)->index('FK_Pembayaran_Cabang');
+			$table->string('nama', 50);
+			$table->integer('id_bundle')->nullable()->index('FK_Pembayaran_Bundle');
+			$table->integer('id_service')->nullable()->index('FK_Pembayaran_Service');
 			$table->char('kode_voucher', 10)->nullable()->index('FK_Relationship_13');
 			$table->timestamp('tanggal')->default(DB::raw('CURRENT_TIMESTAMP'));
-			$table->integer('jumlah');
+			$table->boolean('status')->default(0);
 		});
 	}
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMasterTable extends Migration {
+class CreatePegawaiTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,12 @@ class CreateMasterTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('master', function(Blueprint $table)
+		Schema::create('pegawai', function(Blueprint $table)
 		{
-			$table->increments('id_master');
+			$table->integer('id_pegawai', true);
+			$table->char('kodeCabang', 6)->index('FK_bekerja');
 			$table->string('nama', 50);
-			$table->string('username', 50)->unique();
-			$table->string('password', 191);
-			$table->rememberToken();
+			$table->string('nip', 15);
 			$table->timestamps();
 		});
 	}
@@ -31,7 +30,7 @@ class CreateMasterTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('master');
+		Schema::drop('pegawai');
 	}
 
 }

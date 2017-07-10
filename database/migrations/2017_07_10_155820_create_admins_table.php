@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCustomersTable extends Migration {
+class CreateAdminsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,14 @@ class CreateCustomersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('customers', function(Blueprint $table)
+		Schema::create('admins', function(Blueprint $table)
 		{
-			$table->integer('id_customer', true);
+			$table->integer('id_admin', true);
+			$table->char('kodeCabang', 6)->index('FK_adminbekerja');
 			$table->string('nama', 50);
-			$table->string('email', 50)->unique('email');
-			$table->char('nohp', 14);
-			$table->string('alamat', 100);
+			$table->string('nip', 15)->unique('nip');
 			$table->string('password', 191);
-			$table->rememberToken();
+			$table->string('remember_token', 100)->nullable();
 			$table->timestamps();
 		});
 	}
@@ -33,7 +32,7 @@ class CreateCustomersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('customers');
+		Schema::drop('admins');
 	}
 
 }
