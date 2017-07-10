@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2017 at 11:14 AM
+-- Generation Time: Jul 10, 2017 at 08:03 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -33,12 +33,20 @@ CREATE TABLE `admins` (
   `kodeCabang` char(6) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `nip` varchar(15) NOT NULL,
-  `jeniskelamin` tinyint(1) NOT NULL,
   `password` varchar(191) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id_admin`, `kodeCabang`, `nama`, `nip`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'SBYT01', 'Admin1', '1234567890', '$2y$10$vuix0c7BuiTgVReeAk6eJ.TzG3Izdg7XEMOxXOcIKFkioeY11tVve', 'YmspO2XS9hFTiIquHXWzLHn0tys7e9w9LtA6l0juH3e80JJF38ZqsPMvqQh1', '2017-07-07 02:02:42', '2017-07-07 02:02:42'),
+(2, 'SBYT02', 'Admin Mulyos', '1234512345', '$2y$10$D9t6uoYVBbN9NQ0K5kA8IuvNLOgxmc49KMt6XEAMTP3VN.K6IInRy', 'AiqVPdIcOHgJvdvffMe2WvbxTNPzdsD83yDvFLu8OTejPNhCqXuHMwk4Or9k', '2017-07-09 08:40:01', '2017-07-09 08:40:01'),
+(3, 'SBYT01', 'Admin Unair2', '1122334455', '$2y$10$nSEj0.GbzUFFtaZrBv08HuD1wuaJGp5EfJZkt7ruAbYigAMhfQp96', NULL, '2017-07-09 08:53:33', '2017-07-09 08:53:33');
 
 -- --------------------------------------------------------
 
@@ -49,24 +57,22 @@ CREATE TABLE `admins` (
 CREATE TABLE `bundle` (
   `id_bundle` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `deskripsi` varchar(250) DEFAULT NULL,
-  `gambar` varchar(50) DEFAULT NULL
+  `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `bundle`
 --
 
-INSERT INTO `bundle` (`id_bundle`, `nama`, `harga`, `deskripsi`, `gambar`) VALUES
-(1, 'Azzahra Face Spa', 200000, NULL, NULL),
-(2, 'Azzahra Spa Ice Cream', 250000, NULL, NULL),
-(3, 'Azzahra Body Spa', 200000, NULL, NULL),
-(4, 'Menicure Pedicure', 200000, NULL, NULL),
-(5, 'Paket Almira', 250000, NULL, NULL),
-(6, 'Paket Assadina', 350000, NULL, NULL),
-(7, 'Paket Naura', 375000, NULL, NULL),
-(8, 'Paket Azaria', 425000, NULL, NULL);
+INSERT INTO `bundle` (`id_bundle`, `nama`, `harga`) VALUES
+(1, 'Azzahra Face Spa', 200000),
+(2, 'Azzahra Spa Ice Cream', 250000),
+(3, 'Azzahra Body Spa', 200000),
+(4, 'Menicure Pedicure', 200000),
+(5, 'Paket Almira', 250000),
+(6, 'Paket Assadina', 350000),
+(7, 'Paket Naura', 375000),
+(8, 'Paket Azaria', 425000);
 
 -- --------------------------------------------------------
 
@@ -147,20 +153,18 @@ INSERT INTO `cabang` (`kodeCabang`, `nama`, `alamat`) VALUES
 
 CREATE TABLE `category` (
   `id_category` int(11) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `deskripsi` varchar(250) DEFAULT NULL,
-  `gambar` varchar(50) DEFAULT NULL
+  `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id_category`, `nama`, `deskripsi`, `gambar`) VALUES
-(1, 'Hair', NULL, NULL),
-(2, 'Face', NULL, NULL),
-(3, 'Hands and feet', NULL, NULL),
-(4, 'Body', NULL, NULL);
+INSERT INTO `category` (`id_category`, `nama`) VALUES
+(1, 'Hair'),
+(2, 'Face'),
+(3, 'Hands and feet'),
+(4, 'Body');
 
 -- --------------------------------------------------------
 
@@ -172,7 +176,6 @@ CREATE TABLE `customers` (
   `id_customer` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `jeniskelamin` tinyint(1) NOT NULL,
   `nohp` char(14) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `password` varchar(191) NOT NULL,
@@ -185,9 +188,10 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id_customer`, `nama`, `email`, `jeniskelamin`, `nohp`, `alamat`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ahmad Fajrul Falah', 'fajar.falachudin@gmail.com', 1, '083830466935', 'Jl. Gununganyar Tengah 2A no. 4A', '$2y$10$MiBRwd8lcXsD.83wBODGkOO/MUZl4CqOCLrSRk.01U4S6kEAb22l.', 'EYHEGkjdWJtHdpVwMdAl25EyqjCnWTWgbPmXORSKHS6dgWkSrfMWPRG8ee9L', '2017-07-01 06:26:17', '2017-07-01 06:26:17'),
-(2, 'Example', 'example@example.com', 1, '08123456789', 'example', '$2y$10$g0dkVbYh2IM7S2GuK1lh3um4qQ0aXYC.XiCmpu0Bojv4pcMBJ8fIu', NULL, '2017-07-03 22:11:24', '2017-07-03 22:11:24');
+INSERT INTO `customers` (`id_customer`, `nama`, `email`, `nohp`, `alamat`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Ahmad Fajrul Falah', 'fajar.falachudin@gmail.com', '083830466935', 'Jl. Gununganyar Tengah 2A no. 4A', '$2y$10$MiBRwd8lcXsD.83wBODGkOO/MUZl4CqOCLrSRk.01U4S6kEAb22l.', 'u0hxxdPCIK7kqoM3s99NGojXQllbCOxbStaEBqXAfBCUAQPBaxXTLqpge7Y9', '2017-07-01 06:26:17', '2017-07-01 06:26:17'),
+(2, 'Example', 'example@example.com', '08123456789', 'example', '$2y$10$g0dkVbYh2IM7S2GuK1lh3um4qQ0aXYC.XiCmpu0Bojv4pcMBJ8fIu', NULL, '2017-07-03 22:11:24', '2017-07-03 22:11:24'),
+(3, 'example2', 'example2@example.com', '08123412345', 'example', '$2y$10$sHoBrqPeUwxsnBmYJUGider53Epmf3KFIJ8OcMGHUanRqXLnkBMDi', 'lL9ReMo7BNcoovyJEV9ztDKIMxwEL1SymHScPiLhyR3Bk1sUZrg4Kx2cDyvs', '2017-07-09 09:10:58', '2017-07-09 09:10:58');
 
 -- --------------------------------------------------------
 
@@ -216,6 +220,29 @@ INSERT INTO `jamreservasi` (`id_jam`, `start`, `end`) VALUES
 (8, '17:00:00', '18:00:00'),
 (9, '18:00:00', '19:00:00'),
 (10, '19:00:00', '20:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master`
+--
+
+CREATE TABLE `master` (
+  `id_master` int(10) UNSIGNED NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `master`
+--
+
+INSERT INTO `master` (`id_master`, `nama`, `username`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Master Admin 1', 'master1', '$2y$10$8Sl3k7cShjCsOyKYLrm4wOEJf8QJtFm2l1Iz.EkTUH4ukeom/Qtzy', 'YV2EGG6ltIYyllrVQD3GROOeYCzr4lNQgbWfqq7EfqaNHbdIYI3wyRP6CEsF', '2017-07-09 03:21:12', '2017-07-09 03:21:12');
 
 -- --------------------------------------------------------
 
@@ -253,7 +280,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2017_07_01_133127_add_foreign_keys_to_service_table', 0),
 (18, '2014_10_12_100000_create_password_resets_table', 1),
 (19, '2017_07_02_081737_create_pegawai_table', 0),
-(20, '2017_07_02_081738_add_foreign_keys_to_pegawai_table', 0);
+(20, '2017_07_02_081738_add_foreign_keys_to_pegawai_table', 0),
+(21, '2017_07_01_133124_create_master_table', 2);
 
 -- --------------------------------------------------------
 
@@ -278,9 +306,6 @@ CREATE TABLE `pegawai` (
   `kodeCabang` char(6) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `nip` varchar(15) NOT NULL,
-  `jeniskelamin` tinyint(1) NOT NULL,
-  `tempatlahir` varchar(50) NOT NULL,
-  `tanggallahir` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -289,9 +314,12 @@ CREATE TABLE `pegawai` (
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`id_pegawai`, `kodeCabang`, `nama`, `nip`, `jeniskelamin`, `tempatlahir`, `tanggallahir`, `created_at`, `updated_at`) VALUES
-(1, 'SBYT01', 'Novita Sari', '1234512345', 0, 'Surabaya', '1997-07-07', '2017-07-02 08:43:00', '2017-07-02 08:43:00'),
-(2, 'SBYT01', 'Susi Susanti', '27471929491', 0, 'Surabaya', '1997-07-12', '2017-07-02 14:00:00', '2017-07-02 14:00:00');
+INSERT INTO `pegawai` (`id_pegawai`, `kodeCabang`, `nama`, `nip`, `created_at`, `updated_at`) VALUES
+(1, 'SBYT01', 'Novita Sari', '1234512345', '2017-07-02 08:43:00', '2017-07-02 08:43:00'),
+(2, 'SBYT01', 'Susi Susanti', '27471929491', '2017-07-02 14:00:00', '2017-07-02 14:00:00'),
+(3, 'SBYT02', 'Ririn', '8883746198', '2017-07-09 08:48:16', '2017-07-09 08:48:16'),
+(4, 'SBYT02', 'Ovie Rohmawati', '7592018749', '2017-07-09 09:35:12', '2017-07-09 09:35:12'),
+(5, 'SBYT01', 'Tuti', '75839285628', '2017-07-10 02:58:27', '2017-07-10 02:58:27');
 
 -- --------------------------------------------------------
 
@@ -301,11 +329,23 @@ INSERT INTO `pegawai` (`id_pegawai`, `kodeCabang`, `nama`, `nip`, `jeniskelamin`
 
 CREATE TABLE `pembayaran` (
   `id_pembayaran` int(11) NOT NULL,
-  `id_reservasi` int(11) DEFAULT NULL,
-  `kode_voucher` char(10) DEFAULT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `jumlah` int(11) NOT NULL
+  `kodeCabang` char(6) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `id_bundle` int(11) DEFAULT NULL,
+  `id_service` int(11) DEFAULT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `kodeCabang`, `nama`, `id_bundle`, `id_service`, `tanggal`, `status`) VALUES
+(1, 'SBYT01', 'Ahmad Fajrul Falah', 2, NULL, '2017-07-10 15:28:48', 1),
+(2, 'SBYT02', 'Ahmad Fajrul Falah', 3, NULL, '2017-07-10 15:27:24', 0),
+(3, 'SBYT01', 'Risma', NULL, 2, '2017-07-10 15:48:34', 1),
+(4, 'SBYT01', 'Astuti', NULL, 3, '2017-07-10 18:01:50', 1);
 
 -- --------------------------------------------------------
 
@@ -321,15 +361,17 @@ CREATE TABLE `reservasi` (
   `id_service` int(11) DEFAULT NULL,
   `kodeCabang` char(6) NOT NULL,
   `id_customer` int(11) NOT NULL,
-  `tanggal` date NOT NULL
+  `tanggal` date NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reservasi`
 --
 
-INSERT INTO `reservasi` (`id_reservasi`, `id_bundle`, `id_pegawai`, `id_jam`, `id_service`, `kodeCabang`, `id_customer`, `tanggal`) VALUES
-(1, NULL, 1, 1, 18, 'SBYT01', 1, '2017-07-11');
+INSERT INTO `reservasi` (`id_reservasi`, `id_bundle`, `id_pegawai`, `id_jam`, `id_service`, `kodeCabang`, `id_customer`, `tanggal`, `status`) VALUES
+(1, 2, 1, 3, NULL, 'SBYT01', 1, '2017-07-11', 1),
+(2, 3, 3, 6, NULL, 'SBYT02', 1, '2017-07-11', 1);
 
 -- --------------------------------------------------------
 
@@ -341,55 +383,41 @@ CREATE TABLE `service` (
   `id_service` int(11) NOT NULL,
   `id_category` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `deskripsi` varchar(250) DEFAULT NULL,
-  `gambar` varchar(50) DEFAULT NULL
+  `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service`
 --
 
-INSERT INTO `service` (`id_service`, `id_category`, `nama`, `harga`, `deskripsi`, `gambar`) VALUES
-(1, 1, 'Cuci - Gunting', 70000, NULL, NULL),
-(2, 1, 'Creambath', 70000, NULL, NULL),
-(3, 1, 'Hair Spa', 105000, NULL, NULL),
-(4, 1, 'Hair Mask', 120000, NULL, NULL),
-(5, 1, 'Hair Loss', 120000, NULL, NULL),
-(6, 1, 'Anti Dandruff', 125000, NULL, NULL),
-(7, 2, 'Make up', 250000, NULL, NULL),
-(8, 2, 'Facial', 95000, NULL, NULL),
-(9, 2, 'Masker Wajah', 75000, NULL, NULL),
-(10, 2, 'Totok Wajah', 100000, NULL, NULL),
-(11, 2, 'Setrika Wajah', 175000, NULL, NULL),
-(12, 3, 'Pedicure', 125000, NULL, NULL),
-(13, 3, 'Menicure', 115000, NULL, NULL),
-(14, 3, 'Refleksi', 75000, NULL, NULL),
-(15, 3, 'Massage', 55000, NULL, NULL),
-(16, 3, 'Bleaching Kaki', 85000, NULL, NULL),
-(17, 3, 'Bleaching Tangan', 85000, NULL, NULL),
-(18, 4, 'Bleaching Full Body', 180000, NULL, NULL),
-(19, 4, 'Lulur Spa', 200000, NULL, NULL),
-(20, 4, 'Lulur Spa Ice Cream', 140000, NULL, NULL),
-(21, 4, 'Masker Body', 170000, NULL, NULL),
-(22, 4, 'Body Scrub', 75000, NULL, NULL),
-(23, 4, 'Body Massage', 90000, NULL, NULL),
-(24, 4, 'Body Steam', 60000, NULL, NULL),
-(25, 4, 'Rendam Rempah', 75000, NULL, NULL),
-(26, 4, 'Rendam Susu', 85000, NULL, NULL),
-(27, 4, 'Ear Candle', 80000, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `voucher`
---
-
-CREATE TABLE `voucher` (
-  `kode_voucher` char(10) NOT NULL,
-  `discount` varchar(3) NOT NULL,
-  `status` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `service` (`id_service`, `id_category`, `nama`, `harga`) VALUES
+(1, 1, 'Cuci - Gunting', 70000),
+(2, 1, 'Creambath', 70000),
+(3, 1, 'Hair Spa', 105000),
+(4, 1, 'Hair Mask', 120000),
+(5, 1, 'Hair Loss', 120000),
+(6, 1, 'Anti Dandruff', 125000),
+(7, 2, 'Make up', 250000),
+(8, 2, 'Facial', 95000),
+(9, 2, 'Masker Wajah', 75000),
+(10, 2, 'Totok Wajah', 100000),
+(11, 2, 'Setrika Wajah', 175000),
+(12, 3, 'Pedicure', 125000),
+(13, 3, 'Menicure', 115000),
+(14, 3, 'Refleksi', 75000),
+(15, 3, 'Massage', 55000),
+(16, 3, 'Bleaching Kaki', 85000),
+(17, 3, 'Bleaching Tangan', 85000),
+(18, 4, 'Bleaching Full Body', 180000),
+(19, 4, 'Lulur Spa', 200000),
+(20, 4, 'Lulur Spa Ice Cream', 140000),
+(21, 4, 'Masker Body', 170000),
+(22, 4, 'Body Scrub', 75000),
+(23, 4, 'Body Massage', 90000),
+(24, 4, 'Body Steam', 60000),
+(25, 4, 'Rendam Rempah', 75000),
+(26, 4, 'Rendam Susu', 85000),
+(27, 4, 'Ear Candle', 80000);
 
 --
 -- Indexes for dumped tables
@@ -442,6 +470,13 @@ ALTER TABLE `jamreservasi`
   ADD PRIMARY KEY (`id_jam`);
 
 --
+-- Indexes for table `master`
+--
+ALTER TABLE `master`
+  ADD PRIMARY KEY (`id_master`),
+  ADD UNIQUE KEY `master_username_unique` (`username`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -465,8 +500,9 @@ ALTER TABLE `pegawai`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
-  ADD KEY `FK_Relationship_12` (`id_reservasi`),
-  ADD KEY `FK_Relationship_13` (`kode_voucher`);
+  ADD KEY `FK_Pembayaran_Bundle` (`id_bundle`),
+  ADD KEY `FK_Pembayaran_Service` (`id_service`),
+  ADD KEY `FK_Pembayaran_Cabang` (`kodeCabang`);
 
 --
 -- Indexes for table `reservasi`
@@ -488,12 +524,6 @@ ALTER TABLE `service`
   ADD KEY `FK_kategori_layanan` (`id_category`);
 
 --
--- Indexes for table `voucher`
---
-ALTER TABLE `voucher`
-  ADD PRIMARY KEY (`kode_voucher`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -501,7 +531,7 @@ ALTER TABLE `voucher`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `bundle`
 --
@@ -516,32 +546,37 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `jamreservasi`
 --
 ALTER TABLE `jamreservasi`
   MODIFY `id_jam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
+-- AUTO_INCREMENT for table `master`
+--
+ALTER TABLE `master`
+  MODIFY `id_master` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `service`
 --
@@ -574,8 +609,9 @@ ALTER TABLE `pegawai`
 -- Constraints for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `FK_Relationship_12` FOREIGN KEY (`id_reservasi`) REFERENCES `reservasi` (`id_reservasi`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_Relationship_13` FOREIGN KEY (`kode_voucher`) REFERENCES `voucher` (`kode_voucher`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_Pembayaran_Bundle` FOREIGN KEY (`id_bundle`) REFERENCES `bundle` (`id_bundle`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_Pembayaran_Cabang` FOREIGN KEY (`kodeCabang`) REFERENCES `cabang` (`kodeCabang`),
+  ADD CONSTRAINT `FK_Pembayaran_Service` FOREIGN KEY (`id_service`) REFERENCES `service` (`id_service`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `reservasi`
