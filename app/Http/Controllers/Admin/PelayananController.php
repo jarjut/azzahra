@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Azzahra\Models\Bundle;
 use Azzahra\Models\Category;
 use Azzahra\Models\Pembayaran;
+use Azzahra\Models\Service;
 
 class PelayananController extends Controller
 {
@@ -50,5 +51,11 @@ class PelayananController extends Controller
       return redirect()->back();
     }
 
+
+    public function findService(Request $request)
+    {
+      $service = Service::where('id_category',$request->id)->get();
+      return response()->json($service);
+    }
 
 }

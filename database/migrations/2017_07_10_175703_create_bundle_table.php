@@ -17,8 +17,6 @@ class CreateBundleTable extends Migration {
 			$table->integer('id_bundle', true);
 			$table->string('nama', 50);
 			$table->integer('harga');
-			$table->string('deskripsi', 250)->nullable();
-			$table->string('gambar', 50)->nullable();
 		});
 	}
 

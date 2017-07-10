@@ -103,7 +103,7 @@
                       </li>
                       <li><a href="{{ route('master.pegawai') }}" ><i class="fa fa-user-o fa-fw"></i>Pegawai</a>
                       </li>
-                      <li><a href="#" ><i class="fa fa-user-o fa-fw"></i>Layanan</a>
+                      <li><a href="{{route('master.service')}}" ><i class="fa fa-server fa-fw"></i>Layanan</a>
                       </li>
 
                       <li><a href="{{ route('master.logout') }}" class="menu-smooth-scroll" onclick="event.preventDefault();

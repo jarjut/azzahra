@@ -29,7 +29,7 @@
                   <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                       <div class="card-img-wrap">
-                        <img class="activator" src="http://placehold.it/300x280" alt="">
+                        <img class="activator" src="{{asset('images/bundle.jpg')}}" alt="">
                       </div>
                     </div>
                     <div class="card-content">

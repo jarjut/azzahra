@@ -59,7 +59,7 @@
         <div class="col-sm-12 col-md-8">
           <div class="person-about">
             <h3 class="about-subtitle">Azzahra Salon and Spa</h3>
-            <p>Dalam menghadapi rutinitas sehari-hari sebagai wanita berhijab memang tak mudah, kadang kita butuh <i style="font-style: italic;">Me Time</i> untuk meluangkan waktu menenangkan diri dan menyegarkan pikiran. Azzahra Muslimah Salon and Spa, merupakan salon kecantikan khusus untuk muslimah dengan pelayanan yang lengkap dan berkualitas, dengan demikian, muslimah bisa melakukan perawatan kecantikan, tidak hanya cantik fisik tetapi juga cantik dari dalam. Didirikan sejak 9 Oktober 2015 dengan beragam layanan seperti perawatan rambut, wajah, tangan dan kaki, dan tubuh dengan berdasarkan pada hukum Islam.</p>
+            <p>Dalam menghadapi rutinitas sehari-hari sebagai wanita berhijab memang tak mudah, kadang kita butuh <i style="font-style: italic;">Me Time</i> untuk meluangkan waktu menenangkan diri dan menyegarkan pikiran. Azzahra Muslimah Salon and Spa, merupakan salon kecantikan khusus untuk muslimah dengan pelayanan yang lengkap dan berkualitas, dengan demikian, muslimah bisa melakukan perawatan kecantikan, tidak hanya cantik fisik tetapi juga cantik dari dalam. Didirikan sejak 9 Oktober 2015 dengan beragam layanan seperti perawatan rambut, wajah, tangan dan kaki, dan tubuh.</p>
             {{-- <a class="waves-effect waves-light btn-large brand-bg white-text"><i class="mdi-content-archive left"></i> Download Resume</a> --}}
           </div>
         </div>
@@ -100,7 +100,7 @@
             <div class="clearfix section-head blog-text">
               <div class="col-sm-10">
                 <h2 class="title">Layanan</h2>
-                <p class="regular-text">A Web page that serves as a publicly accessible personal journal for an individual. Typically updated daily, blogs often reflect the personality of the author.</p>
+                <p class="regular-text"></p>
               </div>
             </div>
             <div class="clearfix card-element-wrapper" id="blog-posts">
@@ -109,18 +109,17 @@
                   <div class="card-image">
                     <div class="card-img-wrap">
                       <div class="blog-post-thumb waves-effect waves-block waves-light">
-                        <a href="single.html"><img class="activator" src="http://placehold.it/350x200" alt="">
+                        <a href="{{route('service')}}"><img class="activator" src="{{asset('images/hair.jpg')}}" alt="">
                               </a>
                       </div>
                       <div class="post-body">
-                        <a href="single.html" class="post-title-link brand-text"><h2 class="post-title">Awesome Post Title</h2></a>
-                        <p class="post-content">In consectetuer turpis ut velit. Sed lectus. Ut varius tincidunt libero. Vivamus euismod mauris. Vestibulum fringilla pede sit amet augue. Ut varius tincidunt libero. Pellentesque dapibus hendrerit tortor. </p>
+                        <a href="{{route('service')}}" class="post-title-link brand-text"><h2 class="post-title">Hair Treatment</h2></a>
+                        <p class="post-content">Cuci - Gunting, Creambath, Hair Spa, Hair Mask, HairLoss, . . . .</p>
                       </div>
                     </div>
                   </div>
                   <div class="clearfix card-content">
-                    <a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb">15</span></a>
-                    <a href="single.html" class="brand-text right waves-effect">Read More</a>
+                    <a href="{{route('service')}}" class="brand-text right waves-effect">Read More</a>
                   </div>
                 </div>
               </article>
@@ -130,18 +129,17 @@
                   <div class="card-image">
                     <div class="card-img-wrap">
                       <div class="blog-post-thumb waves-effect waves-block waves-light">
-                        <a href="single.html"><img class="activator" src="http://placehold.it/350x200" alt="">
+                        <a href="{{route('service')}}"><img class="activator" src="{{asset('images/face.jpg')}}" alt="">
                               </a>
                       </div>
                       <div class="post-body">
-                        <a href="single.html" class="post-title-link brand-text"><h2 class="post-title">An Image Post</h2></a>
-                        <p class="post-content">In consectetuer turpis ut velit. Sed lectus. Ut varius tincidunt libero. Vivamus euismod mauris. Vestibulum fringilla pede sit amet augue. Ut varius tincidunt libero. Pellentesque dapibus hendrerit tortor. </p>
+                        <a href="{{route('service')}}" class="post-title-link brand-text"><h2 class="post-title">Face Treatment</h2></a>
+                        <p class="post-content">Make up, Facial, Masker Wajah, Totok Wajah Setrika Wajah . . . </p>
                       </div>
                     </div>
                   </div>
                   <div class="clearfix card-content">
-                    <a href="#" class="left js-favorite active" title="Love this"><i class="mdi-action-favorite"></i><span class="numb">23</span></a>
-                    <a href="single.html" class="brand-text right waves-effect">Read More</a>
+                    <a href="{{route('service')}}" class="brand-text right waves-effect">Read More</a>
                   </div>
                 </div>
               </article>
@@ -151,18 +149,17 @@
                   <div class="card-image">
                     <div class="card-img-wrap">
                       <div class="blog-post-thumb waves-effect waves-block waves-light">
-                        <a href="single.html"><img class="activator" src="http://placehold.it/350x200" alt="">
+                        <a href="{{route('service')}}"><img class="activator" src="{{asset('images/handsandfeet.jpg')}}" alt="">
                               </a>
                       </div>
                       <div class="post-body">
-                        <a href="single.html" class="post-title-link brand-text"><h2 class="post-title">Another Image Post</h2></a>
-                        <p class="post-content">In consectetuer turpis ut velit. Sed lectus. Ut varius tincidunt libero. Vivamus euismod mauris. Vestibulum fringilla pede sit amet augue. Ut varius tincidunt libero. Pellentesque dapibus hendrerit tortor. </p>
+                        <a href="{{route('service')}}" class="post-title-link brand-text"><h2 class="post-title">Hands and Feet Treatment</h2></a>
+                        <p class="post-content">Pedicure, Menicure, Refleksi, Massage, Bleaching . . . </p>
                       </div>
                     </div>
                   </div>
                   <div class="clearfix card-content">
-                    <a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb">17</span></a>
-                    <a href="single.html" class="brand-text right waves-effect">Read More</a>
+                    <a href="{{route('service')}}" class="brand-text right waves-effect">Read More</a>
                   </div>
                 </div>
               </article>
@@ -200,18 +197,17 @@
                   <div class="card-image">
                     <div class="card-img-wrap">
                       <div class="blog-post-thumb waves-effect waves-block waves-light">
-                        <a href="single.html"><img class="activator" src="http://placehold.it/350x200" alt="">
+                        <a href="{{route('bundle')}}"><img class="activator" src="{{asset('images/bundle.jpg')}}" alt="">
                               </a>
                       </div>
                       <div class="post-body">
-                        <a href="single.html" class="post-title-link brand-text"><h2 class="post-title">Awesome Post Title</h2></a>
-                        <p class="post-content">In consectetuer turpis ut velit. Sed lectus. Ut varius tincidunt libero. Vivamus euismod mauris. Vestibulum fringilla pede sit amet augue. Ut varius tincidunt libero. Pellentesque dapibus hendrerit tortor. </p>
+                        <a href="{{route('bundle')}}" class="post-title-link brand-text"><h2 class="post-title">AzZahra Face Spa</h2></a>
+                        <p class="post-content">Masker Wajah + Totok Wajah + Refleksi .............................</p>
                       </div>
                     </div>
                   </div>
                   <div class="clearfix card-content">
-                    <a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb">15</span></a>
-                    <a href="single.html" class="brand-text right waves-effect">Read More</a>
+                    <a href="{{route('bundle')}}" class="brand-text right waves-effect">Read More</a>
                   </div>
                 </div>
               </article>
@@ -221,18 +217,17 @@
                   <div class="card-image">
                     <div class="card-img-wrap">
                       <div class="blog-post-thumb waves-effect waves-block waves-light">
-                        <a href="single.html"><img class="activator" src="http://placehold.it/350x200" alt="">
+                        <a href="{{route('bundle')}}"><img class="activator" src="{{asset('images/bundle.jpg')}}" alt="">
                               </a>
                       </div>
                       <div class="post-body">
-                        <a href="single.html" class="post-title-link brand-text"><h2 class="post-title">An Image Post</h2></a>
-                        <p class="post-content">In consectetuer turpis ut velit. Sed lectus. Ut varius tincidunt libero. Vivamus euismod mauris. Vestibulum fringilla pede sit amet augue. Ut varius tincidunt libero. Pellentesque dapibus hendrerit tortor. </p>
+                        <a href="{{route('bundle')}}" class="post-title-link brand-text"><h2 class="post-title">AzZahra Body Spa</h2></a>
+                        <p class="post-content">Masker Body + Body Scrup + Body Massage + Body Steam + Rendam Rempah</p>
                       </div>
                     </div>
                   </div>
                   <div class="clearfix card-content">
-                    <a href="#" class="left js-favorite active" title="Love this"><i class="mdi-action-favorite"></i><span class="numb">23</span></a>
-                    <a href="single.html" class="brand-text right waves-effect">Read More</a>
+                    <a href="{{route('bundle')}}" class="brand-text right waves-effect">Read More</a>
                   </div>
                 </div>
               </article>
@@ -242,18 +237,17 @@
                   <div class="card-image">
                     <div class="card-img-wrap">
                       <div class="blog-post-thumb waves-effect waves-block waves-light">
-                        <a href="single.html"><img class="activator" src="http://placehold.it/350x200" alt="">
+                        <a href="{{route('bundle')}}"><img class="activator" src="{{asset('images/bundle.jpg')}}" alt="">
                               </a>
                       </div>
                       <div class="post-body">
-                        <a href="single.html" class="post-title-link brand-text"><h2 class="post-title">Another Image Post</h2></a>
-                        <p class="post-content">In consectetuer turpis ut velit. Sed lectus. Ut varius tincidunt libero. Vivamus euismod mauris. Vestibulum fringilla pede sit amet augue. Ut varius tincidunt libero. Pellentesque dapibus hendrerit tortor. </p>
+                        <a href="{{route('bundle')}}" class="post-title-link brand-text"><h2 class="post-title">Paket Assadina</h2></a>
+                        <p class="post-content">Creambath + Facial + Pedicure + Menicure + Lulur Spa</p>
                       </div>
                     </div>
                   </div>
                   <div class="clearfix card-content">
-                    <a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb">17</span></a>
-                    <a href="single.html" class="brand-text right waves-effect">Read More</a>
+                    <a href="{{route('bundle')}}" class="brand-text right waves-effect">Read More</a>
                   </div>
                 </div>
               </article>
@@ -294,12 +288,12 @@
                         <div class="card-image waves-effect waves-block waves-light">
                           <div class="card-img-wrap">
                             <img class="activator" src="materialx/example/images/avatar.png" alt="">
-                            <p class="saying-about">Amazing theme, amazing code and especially amazing support! I Really love your work.</p>
+                            <p class="saying-about">Pegawainya ramah-ramah, bikin betah pas nyalon.</p>
                           </div>
                         </div>
                         <div class="card-content">
-                          <span class="card-title activator brand-text">Jonh Smith -</span>
-                          <a href="#">CEO, Apple Inc</a>
+                          <span class="card-title activator brand-text">Fitriya -</span>
+                          <a href="#">Mahasiswa Unair</a>
                         </div>
                       </div>
                     </div>
@@ -309,12 +303,12 @@
                         <div class="card-image waves-effect waves-block waves-light">
                           <div class="card-img-wrap">
                             <img class="activator" src="materialx/example/images/avatar.png" alt="">
-                            <p class="saying-about">Amazing theme, amazing code and especially amazing support! I Really love your work.</p>
+                            <p class="saying-about">Nyalon disini nggak bikin kantong bolong.</p>
                           </div>
                         </div>
                         <div class="card-content">
-                          <span class="card-title activator brand-text">Jonh Smith -</span>
-                          <a href="#">CEO, Apple Inc</a>
+                          <span class="card-title activator brand-text">Sulistyowati -</span>
+                          <a href="#">Mahasiswa Unair</a>
                         </div>
                       </div>
                     </div>
@@ -324,42 +318,12 @@
                         <div class="card-image waves-effect waves-block waves-light">
                           <div class="card-img-wrap">
                             <img class="activator" src="materialx/example/images/avatar.png" alt="">
-                            <p class="saying-about">Amazing theme, amazing code and especially amazing support ! I Really love your work.</p>
+                            <p class="saying-about">Pelayanannya terbaik.</p>
                           </div>
                         </div>
                         <div class="card-content">
-                          <span class="card-title activator brand-text">Jonh Smith -</span>
-                          <a href="#">CEO, Apple Inc</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- ./single testimonial box -->
-                    <div class="col-sm-6 single-card-box">
-                      <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                          <div class="card-img-wrap">
-                            <img class="activator" src="materialx/example/images/avatar.png" alt="">
-                            <p class="saying-about">Amazing theme, amazing code and especially amazing support ! I Really love your work.</p>
-                          </div>
-                        </div>
-                        <div class="card-content">
-                          <span class="card-title activator brand-text">Jonh Smith -</span>
-                          <a href="#">CEO, Apple Inc</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- ./single testimonial box -->
-                    <div class="col-sm-6 single-card-box">
-                      <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                          <div class="card-img-wrap">
-                            <img class="activator" src="materialx/example/images/avatar.png" alt="">
-                            <p class="saying-about">Amazing theme, amazing code and especially amazing support ! I Really love your work.</p>
-                          </div>
-                        </div>
-                        <div class="card-content">
-                          <span class="card-title activator brand-text">Jonh Smith -</span>
-                          <a href="#">CEO, Apple Inc</a>
+                          <span class="card-title activator brand-text">Rini Sutisno -</span>
+                          <a href="#">Mahasiswa Unair</a>
                         </div>
                       </div>
                     </div>

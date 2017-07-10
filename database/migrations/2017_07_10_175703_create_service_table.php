@@ -18,8 +18,6 @@ class CreateServiceTable extends Migration {
 			$table->integer('id_category')->index('FK_kategori_layanan');
 			$table->string('nama', 50);
 			$table->integer('harga');
-			$table->string('deskripsi', 250)->nullable();
-			$table->string('gambar', 50)->nullable();
 		});
 	}
 

@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     //AjaxRequest
     Route::get('/findReservation','ReservationController@findReservation');
+    Route::get('/findService','PelayananController@findService');
 });
 
 
@@ -70,6 +71,15 @@ Route::group(['prefix' => 'master', 'namespace' => 'Master'], function () {
     Route::get('pegawai/registerPegawai', 'PegawaiController@showRegisterPegawai')->name('master.registerPegawai');
     Route::post('pegawai/registerPegawai', 'PegawaiController@registerPegawai')->name('master.registerPegawai.submit');
     Route::get('pegawai', 'PegawaiController@index')->name('master.pegawai');
+
+    Route::get('service/addService', 'ServiceController@addServiceShow')->name('master.addService');
+    Route::post('service/addService', 'ServiceController@addService')->name('master.addService.submit');
+    Route::get('service/addBundle', 'ServiceController@addBundleShow')->name('master.addBundle');
+    Route::post('service/addBundle', 'ServiceController@addBundle')->name('master.addBundle.submit');
+    Route::get('service/addBundleService/{id}', 'ServiceController@addBundleServiceShow')->name('master.addBundleService');
+    Route::post('service/addBundleService/', 'ServiceController@addBundleService')->name('master.addBundleService.submit');
+    Route::get('service', 'ServiceController@index')->name('master.service');
+
 });
 
 

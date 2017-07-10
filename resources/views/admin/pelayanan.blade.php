@@ -88,7 +88,7 @@
         if(id) {
             $.ajax({
               type:'get',
-              url:'{!!URL::to('findService')!!}',
+              url:'{!!URL::to('admin/findService')!!}',
               data:{'id':id},
               dataType: "json",
               success:function(data) {

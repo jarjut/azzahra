@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateVoucherTable extends Migration {
+class CreateCategoryTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,10 @@ class CreateVoucherTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('voucher', function(Blueprint $table)
+		Schema::create('category', function(Blueprint $table)
 		{
-			$table->char('kode_voucher', 10)->primary();
-			$table->string('discount', 3);
-			$table->boolean('status')->nullable();
+			$table->integer('id_category', true);
+			$table->string('nama', 50);
 		});
 	}
 
@@ -28,7 +27,7 @@ class CreateVoucherTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('voucher');
+		Schema::drop('category');
 	}
 
 }

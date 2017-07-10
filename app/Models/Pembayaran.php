@@ -9,7 +9,7 @@ class Pembayaran extends Model {
      */
 
     protected $table = 'pembayaran';
-    protected $fillable = ['id_pembayaran', 'kodeCabang', 'nama', 'id_bundle', 'id_service', 'kode_voucher', 'tanggal', 'status'];
+    protected $fillable = ['id_pembayaran', 'kodeCabang', 'nama', 'id_bundle', 'id_service', 'tanggal', 'status'];
     protected $primaryKey = 'id_pembayaran';
     public $timestamps = false;
 
@@ -22,9 +22,6 @@ class Pembayaran extends Model {
         return $this->belongsTo(\Azzahra\Models\Service::class, 'id_service', 'id_service');
     }
 
-    public function voucher() {
-        return $this->belongsTo(\Azzahra\Models\Voucher::class, 'kode_voucher', 'kode_voucher');
-    }
 
 
 }

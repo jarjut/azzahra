@@ -11,7 +11,7 @@ class Bundle extends Model {
     protected $table = 'bundle';
     protected $primaryKey = 'id_bundle';
     public $timestamps = false;
-    protected $fillable = ['id_bundle', 'nama', 'harga', 'deskripsi', 'gambar'];
+    protected $fillable = ['id_bundle', 'nama', 'harga'];
 
 
     public function services() {
