@@ -11,7 +11,7 @@
 
             <div class="col-md-6 col-md-offset-3 funfact-box">
               <div class="card-panel white">
-                <h3 class="about-subtitle">Register Admin</h3>
+                <h3 class="about-subtitle">Register Pegawai</h3>
                 <form method="POST" action="{{ route('master.registerPegawai.submit') }}">
                     {{ csrf_field() }}
 

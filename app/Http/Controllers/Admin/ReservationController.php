@@ -48,6 +48,7 @@ class ReservationController extends Controller
     public function findReservation(Request $request){
       $reservasi = Reservasi::with(['pegawai','customer','service','bundle','jamreservasi'])
       ->where('tanggal',$request->tanggal)
+      ->where('kodeCabang',auth()->guard('admin')->user()->kodeCabang)
       ->where('status', 0)
       ->get();
       return response()->json($reservasi);
